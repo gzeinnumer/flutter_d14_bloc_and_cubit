@@ -9,7 +9,7 @@ class PostCubit extends Cubit<List<Post>> {
   PostCubit() : super([]);
 
   void getPost() async {
-    return emit(await _dataService.getPosts());
+    return emit(await _dataService.getPost());
   }
 }
 
@@ -50,7 +50,7 @@ class PostBloc extends Bloc<PostEvent, PostState>{
     if(event is LoadPostEvent || event is PullToRefreshEvent){
       yield LoadingPostState();
       try{
-        final res = await _dataService.getPosts();
+        final res = await _dataService.getPost();
         yield LoadedPostState(res);
       } on Error catch(e){
         yield FailedToLoadPostState(e);

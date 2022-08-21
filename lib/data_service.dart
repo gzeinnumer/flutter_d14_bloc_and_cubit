@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class DataService {
   final _baseUrl = 'jsonplaceholder.typicode.com';
 
-  Future<List<Post>> getPosts() async {
+  Future<List<Post>> getPost() async {
     try {
       final uri = Uri.https(_baseUrl, '/posts');
       // final uri = Uri.https(_baseUrl, '/postz'); //error sengaja
